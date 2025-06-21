@@ -54,6 +54,11 @@ server.delete('/videos/:id', async (request, reply) => {
 
 })
 
+server.get('/health', async () => {
+  return { status: 'OK', timestamp: new Date() };
+});
+
 server.listen({
-    port: process.env.port ?? 3333,
+    host: '0.0.0.0',
+    port: process.env.PORT || 3333,
 })
